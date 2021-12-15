@@ -59,14 +59,12 @@ contract ERC20Token is ERC20Interface {
         return balances[_tokenOwner];
     }
 
-    // Set
     function apporve(address _sender, uint256 _tokens) external override returns (bool success) {
         allowed[msg.sender][_sender] = _tokens;
         emit Approval(msg.sender, _sender, _tokens);
         return true;
     }
 
-    // Return the
     function allowance(address _tokenOwner, address _spender) external view override returns (uint256 remaining) {
         return allowed[_tokenOwner][_spender];
     }
